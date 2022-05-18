@@ -8,7 +8,7 @@ export default function WeatherSearch() {
   const [weatherData, setWeatherData] = useState([]);
   const [weatherQuery, setWeatherQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
+  console.log(weatherData);
   async function handleWeatherSubmit(e) {
     e.preventDefault();
       
@@ -19,6 +19,7 @@ export default function WeatherSearch() {
   
         // put the jsonified data in state and set the loading state to false
     setWeatherData(response.weatherData.daily);
+
     setIsLoading(false);
   }
       

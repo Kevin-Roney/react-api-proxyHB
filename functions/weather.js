@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fetch = require('node-fetch');
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
@@ -17,6 +18,7 @@ exports.handler = async (event, context) => {
     // consult the yelp docs to figure out how to use a city, state, and country to make a request and get the latitude and longitude
     // https://openweathermap.org/api/geocoding-api
     const [{ lat, lon }] = await geocodingResponse.json();
+
     // once you have gotten the lat/lon using the geocoding api, use the lat/lon to get the weather. Consult the docs below:
     // https://openweathermap.org/api/one-call-api
     const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_KEY}`);
