@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const headers = {
@@ -12,7 +13,7 @@ exports.handler = async (event, context) => {
     // grab the city, state, and country from the request's query parameters
     // here is an example from the netlify docs:
     // https://functions.netlify.com/playground/#hello%2C-%7Bname%7D 
-    const response = await fetch(`https://api.yelp.com/v3/businesses/search?location=portland`, {
+    const response = await fetch(`https://api.yelp.com/v3/businesses/search?location=${event.queryStringParameters.searchFilter}`, {
       headers: {
         'Authorization': `Bearer ${process.env.YELP_KEY}`,
       },
