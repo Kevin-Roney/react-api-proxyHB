@@ -8,7 +8,7 @@ export default function YelpSearch() {
   const [yelpData, setYelpData] = useState([]);
   const [yelpQuery, setYelpQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
+  console.log(yelpData);
 
   async function handleYelpSubmit(e) {
     e.preventDefault();
@@ -19,7 +19,7 @@ export default function YelpSearch() {
     const response = await getYelpData(yelpQuery);
   
     // put the jsonified data in state and set the loading state to false
-    setYelpData(response);
+    setYelpData(response.data.businesses);
     setIsLoading(false);
   }
   
