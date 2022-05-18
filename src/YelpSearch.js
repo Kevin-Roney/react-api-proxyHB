@@ -8,7 +8,6 @@ export default function YelpSearch() {
   const [yelpData, setYelpData] = useState([]);
   const [yelpQuery, setYelpQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  console.log(yelpData);
 
   async function handleYelpSubmit(e) {
     e.preventDefault();

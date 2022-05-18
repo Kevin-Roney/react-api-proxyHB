@@ -22,7 +22,6 @@ exports.handler = async (event, context) => {
     // https://www.yelp.com/developers/documentation/v3/business_search
     // don't forget to add the yelp API key!
     const data = await response.json();
-    console.log(data);
     
 
     return { 
