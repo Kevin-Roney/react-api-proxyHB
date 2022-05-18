@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fetch = require('node-fetch');
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
@@ -16,6 +17,7 @@ exports.handler = async (event, context) => {
     // consult the pokedex docs 
     // https://pokedex-alchemy.herokuapp.com/
     const data = await response.json();
+
     return { 
       statusCode: 200, 
       headers,
